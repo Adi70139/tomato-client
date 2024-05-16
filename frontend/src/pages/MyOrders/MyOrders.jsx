@@ -3,6 +3,7 @@ import './MyOrders.css'
 import axios from 'axios'
 import { StoreContext } from '../../Context/StoreContext';
 import { assets } from '../../assets/assets';
+import { text } from 'express';
 
 const MyOrders = () => {
   
@@ -24,7 +25,10 @@ const MyOrders = () => {
     <div className='my-orders'>
       <h2>My Orders</h2>
       <div className="container">
-        {data.map((order,index)=>{
+
+        {data.length===0?<h2 className='noOrders'>No orders to display</h2>:
+        
+        data.map((order,index)=>{
           return (
             <div key={index} className='my-orders-order'>
                 <img src={assets.parcel_icon} alt="" />
